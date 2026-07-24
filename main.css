@@ -149,3 +149,10 @@ button { font: inherit; }
 .ad-wall { gap: 2px !important; }
 .ad-card { cursor: default; }
 .ad-card__index { position: absolute; top: 9px; left: 11px; color: var(--card-muted, #6f7482); font: 8px/1 "Microma Local", Arial, sans-serif; letter-spacing: .08em; }
+.ad-card, .ad-card:hover { transform: none !important; }
+@media (min-width: 701px) {
+  .wall-section { padding-top: 2px; padding-bottom: 2px; }
+}
+@media (max-width: 700px) {
+  .wall-section { padding-top: 2px; padding-bottom: 2px; }
+}

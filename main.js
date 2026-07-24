@@ -68,8 +68,7 @@ if (grid) {
     const tone = cardPalette[index % cardPalette.length];
     card.className = `ad-card ${sizePattern[index]}`;
     card.dataset.brand = client.name;
-    const tileScale = 0.84 + (index * 0.006);
-    card.style.setProperty("--tile-transform", `scale(${tileScale.toFixed(3)})`);
+
     card.style.setProperty("--accent", client.color);
     card.style.setProperty("--card-bg", tone.bg);
     card.style.setProperty("--card-text", tone.text);
@@ -109,6 +108,7 @@ nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () =
   toggle?.setAttribute("aria-expanded", "false");
   if (toggle) toggle.querySelector("span").textContent = "+";
 }));
+
 
 
 
