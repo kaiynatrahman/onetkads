@@ -61,12 +61,19 @@ brandTooltip.className = "brand-tooltip";
 brandTooltip.setAttribute("role", "tooltip");
 brandTooltip.setAttribute("aria-hidden", "true");
 document.body.appendChild(brandTooltip);
-const grid = document.querySelector("#ad-grid");
+const mobileBatches = ["first", "second", "third"].map((name) => {
+  const batch = document.createElement("div");
+  batch.className = `ad-batch ad-batch--${name}`;
+  return batch;
+});
+const mobileSizeShuffle = ["mobile-short", "mobile-tall", "mobile-short", "mobile-medium", "mobile-short", "mobile-feature", "mobile-medium", "mobile-short"];const grid = document.querySelector("#ad-grid");
 if (grid) {
+  mobileBatches.forEach((batch) => grid.appendChild(batch));
   clients.forEach((client, index) => {
     const card = document.createElement("div");
     const tone = cardPalette[index % cardPalette.length];
     card.className = `ad-card ${sizePattern[index]}`;
+    card.classList.add(mobileSizeShuffle[(index * 5 + 2) % mobileSizeShuffle.length]);
     card.dataset.brand = client.name;
 
     card.style.setProperty("--accent", client.color);
@@ -92,7 +99,9 @@ if (grid) {
     card.addEventListener("mouseenter", showBrandTooltip);
     card.addEventListener("mouseleave", hideBrandTooltip);
     card.addEventListener("focus", showBrandTooltip);
-    card.addEventListener("blur", hideBrandTooltip);    grid.appendChild(card);
+    card.addEventListener("blur", hideBrandTooltip);
+    const batchIndex = index < 9 ? 0 : index < 17 ? 1 : 2;
+    mobileBatches[batchIndex].appendChild(card);
   });
 }
 
@@ -108,6 +117,7 @@ nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () =
   toggle?.setAttribute("aria-expanded", "false");
   if (toggle) toggle.querySelector("span").textContent = "+";
 }));
+
 
 
 
