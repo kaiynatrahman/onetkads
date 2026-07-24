@@ -146,3 +146,6 @@ button { font: inherit; }
 @media (max-width: 700px) {
   .brand-tooltip { max-width: 145px; padding: 7px 10px; font-size: 8px; }
 }
+.ad-wall { gap: 2px !important; }
+.ad-card { cursor: default; }
+.ad-card__index { position: absolute; top: 9px; left: 11px; color: var(--card-muted, #6f7482); font: 8px/1 "Microma Local", Arial, sans-serif; letter-spacing: .08em; }
