@@ -1,0 +1,14 @@
+/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/index.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/cache-clear.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/main.css
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/main.js
+  Cache-Control: no-cache, no-store, must-revalidate
