@@ -50,7 +50,7 @@
 ];
 
 const sizePattern = ["size-feature", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-tall", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-tall", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-tall", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-small", "size-small", "size-medium"];
-sizePattern.push(...Array(12).fill("size-small"));
+sizePattern.push("size-wide-row", "size-medium-row", "size-double-row", "size-double-row", "size-double-row", "size-small-row", "size-small-row", "size-small-row", "size-small-row", "size-small-row", "size-small-row", "size-small-row");
 const cardPalette = clients.map((_, index) => {
   const hue = (index * 47) % 360;
   return { bg: `hsl(${hue} 82% 84%)`, text: "#171A27", muted: `hsl(${hue} 48% 32%)` };
@@ -108,6 +108,7 @@ nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () =
   toggle?.setAttribute("aria-expanded", "false");
   if (toggle) toggle.querySelector("span").textContent = "+";
 }));
+
 
 
 
