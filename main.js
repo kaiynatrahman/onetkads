@@ -64,6 +64,11 @@ const cardPalette = [
   { bg: "#D8F0C2", text: "#171A27", muted: "#4E812E" }
 ];
 
+const brandTooltip = document.createElement("div");
+brandTooltip.className = "brand-tooltip";
+brandTooltip.setAttribute("role", "tooltip");
+brandTooltip.setAttribute("aria-hidden", "true");
+document.body.appendChild(brandTooltip);
 const grid = document.querySelector("#ad-grid");
 if (grid) {
   clients.forEach((client, index) => {
@@ -71,6 +76,8 @@ if (grid) {
     const tone = cardPalette[index % cardPalette.length];
     card.className = `ad-card ${sizePattern[index]}`;
     card.dataset.brand = client.name;
+    const tileScale = 0.84 + (index * 0.006);
+    card.style.setProperty("--tile-transform", `scale(${tileScale.toFixed(3)})`);
     card.href = client.site;
     card.target = "_blank";
     card.rel = "noopener noreferrer";
@@ -80,7 +87,22 @@ if (grid) {
     card.style.setProperty("--card-muted", tone.muted);
     card.setAttribute("aria-label", `Visit ${client.name} website`);
     card.innerHTML = `<span class="ad-card__logo"><img src="${client.icon}" alt="" /><span>${client.name}</span></span><span class="ad-card__type">${client.type}</span>`;
-    grid.appendChild(card);
+    const showBrandTooltip = () => {
+      const rect = card.getBoundingClientRect();
+      brandTooltip.textContent = `Visit ${client.name}`;
+      brandTooltip.style.left = `${Math.min(Math.max(rect.left + rect.width / 2, 90), window.innerWidth - 90)}px`;
+      brandTooltip.style.top = `${Math.max(rect.top - 10, 8)}px`;
+      brandTooltip.classList.add("is-visible");
+      brandTooltip.setAttribute("aria-hidden", "false");
+    };
+    const hideBrandTooltip = () => {
+      brandTooltip.classList.remove("is-visible");
+      brandTooltip.setAttribute("aria-hidden", "true");
+    };
+    card.addEventListener("mouseenter", showBrandTooltip);
+    card.addEventListener("mouseleave", hideBrandTooltip);
+    card.addEventListener("focus", showBrandTooltip);
+    card.addEventListener("blur", hideBrandTooltip);    grid.appendChild(card);
   });
 }
 
@@ -96,6 +118,7 @@ nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () =
   toggle?.setAttribute("aria-expanded", "false");
   if (toggle) toggle.querySelector("span").textContent = "+";
 }));
+
 
 
 
