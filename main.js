@@ -34,10 +34,23 @@
   { name: "Khan Academy", type: "Online learning", site: "https://www.khanacademy.org/", icon: "https://cdn.simpleicons.org/khanacademy/F97316", color: "#F97316" },
   { name: "Product Hunt", type: "Product discovery", site: "https://www.producthunt.com/", icon: "https://cdn.simpleicons.org/producthunt/F97316", color: "#F97316" },
   { name: "Coursera", type: "Online courses", site: "https://www.coursera.org/", icon: "https://cdn.simpleicons.org/coursera/556DCB", color: "#556DCB" },
-  { name: "WhatsApp", type: "Messaging", site: "https://www.whatsapp.com/", icon: "https://cdn.simpleicons.org/whatsapp/556DCB", color: "#556DCB" }
+  { name: "WhatsApp", type: "Messaging", site: "https://www.whatsapp.com/", icon: "https://cdn.simpleicons.org/whatsapp/556DCB", color: "#556DCB" },
+  { name: "Google", type: "Search & cloud", site: "https://www.google.com/", icon: "https://cdn.simpleicons.org/google/556DCB", color: "#556DCB" },
+  { name: "Microsoft", type: "Software", site: "https://www.microsoft.com/", icon: "https://cdn.simpleicons.org/microsoft/F97316", color: "#F97316" },
+  { name: "Apple", type: "Technology", site: "https://www.apple.com/", icon: "https://cdn.simpleicons.org/apple/171A27", color: "#171A27" },
+  { name: "Netflix", type: "Entertainment", site: "https://www.netflix.com/", icon: "https://cdn.simpleicons.org/netflix/F97316", color: "#F97316" },
+  { name: "Nike", type: "Sportswear", site: "https://www.nike.com/", icon: "https://cdn.simpleicons.org/nike/171A27", color: "#171A27" },
+  { name: "Coca-Cola", type: "Beverages", site: "https://www.coca-cola.com/", icon: "https://cdn.simpleicons.org/cocacola/F97316", color: "#F97316" },
+  { name: "Samsung", type: "Electronics", site: "https://www.samsung.com/", icon: "https://cdn.simpleicons.org/samsung/556DCB", color: "#556DCB" },
+  { name: "Adobe", type: "Creative software", site: "https://www.adobe.com/", icon: "https://cdn.simpleicons.org/adobe/F97316", color: "#F97316" },
+  { name: "LinkedIn", type: "Professional network", site: "https://www.linkedin.com/", icon: "https://cdn.simpleicons.org/linkedin/556DCB", color: "#556DCB" },
+  { name: "X", type: "Social network", site: "https://x.com/", icon: "https://cdn.simpleicons.org/x/171A27", color: "#171A27" },
+  { name: "Amazon", type: "Online retail", site: "https://www.amazon.com/", icon: "https://cdn.simpleicons.org/amazon/F97316", color: "#F97316" },
+  { name: "Etsy", type: "Marketplace", site: "https://www.etsy.com/", icon: "https://cdn.simpleicons.org/etsy/556DCB", color: "#556DCB" }
 ];
 
 const sizePattern = ["size-feature", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-tall", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-tall", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-tall", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-small", "size-small", "size-medium"];
+sizePattern.push(...Array(12).fill("size-small"));
 const cardPalette = [
   { bg: "#556DCB", text: "#ffffff", muted: "rgba(255,255,255,.72)" },
   { bg: "#F97316", text: "#ffffff", muted: "rgba(255,255,255,.72)" },
@@ -57,6 +70,7 @@ if (grid) {
     const card = document.createElement("a");
     const tone = cardPalette[index % cardPalette.length];
     card.className = `ad-card ${sizePattern[index]}`;
+    card.dataset.brand = client.name;
     card.href = client.site;
     card.target = "_blank";
     card.rel = "noopener noreferrer";
@@ -82,3 +96,6 @@ nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () =
   toggle?.setAttribute("aria-expanded", "false");
   if (toggle) toggle.querySelector("span").textContent = "+";
 }));
+
+
+

@@ -131,3 +131,10 @@ button { font: inherit; }
   .ad-card__type { left: 6px; bottom: 4px; font-size: 6px !important; }
   .ad-card::after { right: 6px; top: 4px; font-size: 13px; }
 }
+.ad-card:hover { transform: none !important; box-shadow: 0 12px 35px rgba(23,26,39,.07) !important; }
+.ad-card::after { content: "Visit " attr(data-brand); right: 8px; top: 8px; left: 8px; width: auto; height: auto; padding: 7px 9px; color: #ffffff; background: #171A27; border-radius: 6px; opacity: 0; transform: translateY(-4px); font: 8px/1.2 "Microma Local", Arial, sans-serif; letter-spacing: .06em; text-align: center; pointer-events: none; }
+.ad-card:hover::after { opacity: 1; transform: translateY(0); }
+
+@media (min-width: 701px) {
+  .ad-wall { grid-template-rows: repeat(8, minmax(0, 1fr)); }
+}
