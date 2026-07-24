@@ -162,3 +162,7 @@ button { font: inherit; }
   .ad-card.size-double-row { grid-column: span 2 !important; grid-row: span 1 !important; }
   .ad-card.size-small-row { grid-column: span 1 !important; grid-row: span 1 !important; }
 }
+@media (min-width: 701px) and (max-width: 1000px) {
+  .ad-wall { grid-template-columns: repeat(8, minmax(0, 1fr)); grid-template-rows: repeat(6, minmax(0, 1fr)); grid-auto-flow: row; }
+  .ad-card, .ad-card:hover { grid-column: span 1 !important; grid-row: span 1 !important; transform: none !important; }
+}
