@@ -120,3 +120,14 @@ button { font: inherit; }
 @media (min-width: 701px) {
   .ad-wall { grid-template-rows: repeat(6, minmax(0, 1fr)); }
 }
+@media (max-width: 700px) {
+  .wall-section { padding-top: 6px; padding-bottom: 18px; }
+  .ad-wall { grid-auto-rows: 62px; gap: 6px; }
+  .ad-card { min-height: 0; padding: 7px !important; }
+  .ad-card.size-small, .ad-card.size-medium, .ad-card.size-tall { grid-row: span 1 !important; }
+  .ad-card.size-feature { grid-row: span 2 !important; }
+  .ad-card__logo { gap: 4px !important; font-size: 10px !important; }
+  .ad-card__logo img { width: 21px !important; height: 21px !important; padding: 3px !important; border-radius: 6px; }
+  .ad-card__type { left: 6px; bottom: 4px; font-size: 6px !important; }
+  .ad-card::after { right: 6px; top: 4px; font-size: 13px; }
+}
