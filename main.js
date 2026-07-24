@@ -26,11 +26,13 @@
   { name: "Unsplash", type: "Photography", site: "https://unsplash.com/", icon: "https://cdn.simpleicons.org/unsplash/F97316", color: "#F97316" }
 ];
 
+const sizePattern = ["size-feature", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-tall", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-tall", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-tall", "size-small", "size-medium", "size-small", "size-small", "size-medium"];
+
 const grid = document.querySelector("#ad-grid");
 if (grid) {
-  clients.forEach((client) => {
+  clients.forEach((client, index) => {
     const card = document.createElement("a");
-    card.className = "ad-card";
+    card.className = `ad-card ${sizePattern[index]}`;
     card.href = client.site;
     card.target = "_blank";
     card.rel = "noopener noreferrer";
@@ -53,3 +55,4 @@ nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () =
   toggle?.setAttribute("aria-expanded", "false");
   if (toggle) toggle.querySelector("span").textContent = "+";
 }));
+
