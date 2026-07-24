@@ -20,7 +20,7 @@ button { font: inherit; }
 .header-inner { height: 100%; max-width: 1600px; padding: 0 42px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
 .wordmark { font: 30px/1 "Irish Grover Local", Georgia, serif; letter-spacing: -.04em; white-space: nowrap; }
 .wordmark span { color: #ffb37b; }
-.site-nav { display: flex; align-items: center; gap: 50px; margin-left: auto; margin-right: auto; }
+.site-nav { display: flex; align-items: center; gap: 30px; margin-left: auto; margin-right: auto; }
 .site-nav a { font-size: 14px; letter-spacing: .035em; white-space: nowrap; opacity: .9; transition: color .2s ease, opacity .2s ease; }
 .site-nav a:hover, .site-nav a.is-active { color: #ffd4bb; opacity: 1; }
 .signup-button { display: inline-flex; align-items: center; justify-content: center; gap: 13px; width: 150px; height: 40px; color: white; background: var(--orange); font-size: 11px; letter-spacing: .06em; font-weight: 700; transition: background .2s ease, color .2s ease; }
@@ -33,7 +33,7 @@ main { min-height: calc(100vh - 100px); }
 
 @media (max-width: 1000px) {
   .header-inner { padding-left: 22px; padding-right: 22px; gap: 12px; }
-  .site-nav { gap: 50px; }
+  .site-nav { gap: 30px; }
   .site-nav a { font-size: 14px; }
 }
 
@@ -44,14 +44,23 @@ main { min-height: calc(100vh - 100px); }
   .menu-toggle { display: block; margin-left: auto; font-size: 11px; letter-spacing: .08em; }
   .menu-toggle span { color: #ffd4bb; font-size: 20px; margin-left: 5px; }
   .signup-button { width: 112px; height: 36px; font-size: 9px; }
-  .site-nav { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 20px 22px; flex-direction: column; align-items: flex-start; gap: 50px; background: var(--blue); box-shadow: 0 15px 25px rgba(23,26,39,.15); }
+  .site-nav { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 20px 22px; flex-direction: column; align-items: flex-start; gap: 30px; background: var(--blue); box-shadow: 0 15px 25px rgba(23,26,39,.15); }
   .site-nav.is-open { display: flex; }
   .site-nav a { font-size: 14px; }
   .main-container { min-height: calc(100vh - 108px); padding: 8px 22px 24px; }
 }
+@media (max-width: 700px) {
+  body {
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
 
-
-
-
-
-
+  img,
+  a,
+  button {
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+}

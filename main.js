@@ -12,3 +12,8 @@ nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () =
   toggle?.setAttribute("aria-expanded", "false");
   if (toggle) toggle.querySelector("span").textContent = "+";
 }));
+if (window.matchMedia("(max-width: 700px)").matches) {
+  ["copy", "cut", "dragstart", "dblclick", "contextmenu"].forEach((eventName) => {
+    document.addEventListener(eventName, (event) => event.preventDefault(), { passive: false });
+  });
+}
