@@ -1,0 +1,15 @@
+landing page 
+files: index.html, main.css, main.js 
+folder: assets (for images, logos, etc)
+folder for font: required font download and store here for locally show the font (reason: if anyone dose not have that font, it shows from this folder to the site) 
+branding Color: White for text, body bg #f7f7f7, orange #F97316, blue #556DCB
+
+section 1. top announcment section thakbe jekhane onek gula bullet point tag line marque hobe, background branding orange and text white, full width - height 60px, marque continue loop hobe jeno bujha na jy kon tags theke start hoyeche
+section 2. site header full width, height 60 px and container 1600px, bg branding blue, in container, left align text logo (onetkads.com) font irish grover, size 30px and middle align nav menu (home, 1 tk ads, how we works, what you get, your dashboard, contact), font microma, size 16px, color white, hover branding orange and right align button FREE Sign up, width 150px height 40px, bg orange, color white, hover bg #f7f7f7, text color on hover black
+section 3: main body for advertisement of client logo, ei body te choto choto random size er box thakbe jekhane ami client er logo add korte parbo and logo gula clickable hobe. click korle oder site link e chole jabe, main body full width hobe but container 1600px hobe and height auto 100% hobe according to device size, choto choto box gula te kono borader rakhbe na but halka dropshadow dibe, logo gulo backend theke ashbe so apatoto tumi web search kore bivvinno company and different type company logo and site link niye boshiye dao (demo purpose)
+
+for admin:
+ekta admin.html page modern, clean and user friendly minimal dashboard design koro, admin page er jonno css and js file alada korbe and admin folder kore shob file store korbe.
+admin.html e jabar jonno ekta modern login page korbe, id: admin, password: admin123, login na korle admin.html dekhabe na.
+after login, dashboard er left menu Dashboard, Advertisement, Clients, Settings, logout.
+logout korar jonno ekta page korbe jeno logout korar por admin login page a chole jy
