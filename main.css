@@ -180,3 +180,14 @@ button { font: inherit; }
   .ad-batch .ad-card.mobile-medium { grid-row: span 2 !important; }
   .ad-batch .ad-card.mobile-feature { grid-row: span 3 !important; }
 }
+@media (max-width: 700px) {
+  .ad-batch { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 2px; margin-bottom: 2px; }
+  .ad-batch--first .ad-card { flex: 0 0 calc((100% - 2px) / 2); }
+  .ad-batch--second .ad-card { flex: 0 0 calc((100% - 6px) / 4); }
+  .ad-batch--third .ad-card { flex: 0 0 calc((100% - 4px) / 3); }
+  .ad-batch .ad-card { grid-column: auto !important; grid-row: auto !important; height: var(--mobile-height, 66px); min-height: 0; align-self: flex-start; }
+  .ad-batch .ad-card.mobile-short { --mobile-height: 62px; }
+  .ad-batch .ad-card.mobile-medium { --mobile-height: 70px; }
+  .ad-batch .ad-card.mobile-tall { --mobile-height: 78px; }
+  .ad-batch .ad-card.mobile-feature { --mobile-height: 86px; }
+}
