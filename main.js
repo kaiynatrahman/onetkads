@@ -23,20 +23,47 @@
   { name: "Framer", type: "Web design", site: "https://www.framer.com/", icon: "https://cdn.simpleicons.org/framer/F97316", color: "#F97316" },
   { name: "Asana", type: "Team planning", site: "https://asana.com/", icon: "https://cdn.simpleicons.org/asana/556DCB", color: "#556DCB" },
   { name: "Behance", type: "Creative network", site: "https://www.behance.net/", icon: "https://cdn.simpleicons.org/behance/171A27", color: "#171A27" },
-  { name: "Unsplash", type: "Photography", site: "https://unsplash.com/", icon: "https://cdn.simpleicons.org/unsplash/F97316", color: "#F97316" }
+  { name: "Unsplash", type: "Photography", site: "https://unsplash.com/", icon: "https://cdn.simpleicons.org/unsplash/F97316", color: "#F97316" },
+  { name: "Dribbble", type: "Creative community", site: "https://dribbble.com/", icon: "https://cdn.simpleicons.org/dribbble/F97316", color: "#F97316" },
+  { name: "GitLab", type: "Code collaboration", site: "https://about.gitlab.com/", icon: "https://cdn.simpleicons.org/gitlab/556DCB", color: "#556DCB" },
+  { name: "Trello", type: "Team planning", site: "https://trello.com/", icon: "https://cdn.simpleicons.org/trello/171A27", color: "#171A27" },
+  { name: "Miro", type: "Visual collaboration", site: "https://miro.com/", icon: "https://cdn.simpleicons.org/miro/F97316", color: "#F97316" },
+  { name: "Reddit", type: "Online community", site: "https://www.reddit.com/", icon: "https://cdn.simpleicons.org/reddit/556DCB", color: "#556DCB" },
+  { name: "Telegram", type: "Messaging", site: "https://telegram.org/", icon: "https://cdn.simpleicons.org/telegram/556DCB", color: "#556DCB" },
+  { name: "WordPress", type: "Website platform", site: "https://wordpress.org/", icon: "https://cdn.simpleicons.org/wordpress/171A27", color: "#171A27" },
+  { name: "Khan Academy", type: "Online learning", site: "https://www.khanacademy.org/", icon: "https://cdn.simpleicons.org/khanacademy/F97316", color: "#F97316" },
+  { name: "Product Hunt", type: "Product discovery", site: "https://www.producthunt.com/", icon: "https://cdn.simpleicons.org/producthunt/F97316", color: "#F97316" },
+  { name: "Coursera", type: "Online courses", site: "https://www.coursera.org/", icon: "https://cdn.simpleicons.org/coursera/556DCB", color: "#556DCB" },
+  { name: "WhatsApp", type: "Messaging", site: "https://www.whatsapp.com/", icon: "https://cdn.simpleicons.org/whatsapp/556DCB", color: "#556DCB" }
 ];
 
-const sizePattern = ["size-feature", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-tall", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-tall", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-tall", "size-small", "size-medium", "size-small", "size-small", "size-medium"];
+const sizePattern = ["size-feature", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-tall", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-tall", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-tall", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-small", "size-small", "size-medium", "size-small", "size-small", "size-medium"];
+const cardPalette = [
+  { bg: "#556DCB", text: "#ffffff", muted: "rgba(255,255,255,.72)" },
+  { bg: "#F97316", text: "#ffffff", muted: "rgba(255,255,255,.72)" },
+  { bg: "#DCE4FF", text: "#171A27", muted: "#556DCB" },
+  { bg: "#FFE0CF", text: "#171A27", muted: "#A64A14" },
+  { bg: "#CFF3E5", text: "#171A27", muted: "#287B5D" },
+  { bg: "#FFF1A8", text: "#171A27", muted: "#927500" },
+  { bg: "#EAD8FF", text: "#171A27", muted: "#7750A8" },
+  { bg: "#C9F0F5", text: "#171A27", muted: "#2D7985" },
+  { bg: "#FFE0EA", text: "#171A27", muted: "#A54769" },
+  { bg: "#D8F0C2", text: "#171A27", muted: "#4E812E" }
+];
 
 const grid = document.querySelector("#ad-grid");
 if (grid) {
   clients.forEach((client, index) => {
     const card = document.createElement("a");
+    const tone = cardPalette[index % cardPalette.length];
     card.className = `ad-card ${sizePattern[index]}`;
     card.href = client.site;
     card.target = "_blank";
     card.rel = "noopener noreferrer";
     card.style.setProperty("--accent", client.color);
+    card.style.setProperty("--card-bg", tone.bg);
+    card.style.setProperty("--card-text", tone.text);
+    card.style.setProperty("--card-muted", tone.muted);
     card.setAttribute("aria-label", `Visit ${client.name} website`);
     card.innerHTML = `<span class="ad-card__logo"><img src="${client.icon}" alt="" /><span>${client.name}</span></span><span class="ad-card__type">${client.type}</span>`;
     grid.appendChild(card);
@@ -55,4 +82,3 @@ nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () =
   toggle?.setAttribute("aria-expanded", "false");
   if (toggle) toggle.querySelector("span").textContent = "+";
 }));
-

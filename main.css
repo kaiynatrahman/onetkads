@@ -112,3 +112,11 @@ button { font: inherit; }
   .ad-card.size-tall { grid-column: span 2 !important; grid-row: span 2 !important; }
   .ad-card.size-feature { grid-column: span 4 !important; grid-row: span 2 !important; }
 }
+.ad-card { background: var(--card-bg, #ffffff) !important; color: var(--card-text, #171A27); }
+.ad-card__logo { color: var(--card-text, var(--accent)) !important; }
+.ad-card__type { color: var(--card-muted, var(--muted)) !important; }
+.ad-card__logo img { padding: 5px; background: rgba(255,255,255,.78); border-radius: 9px; }
+
+@media (min-width: 701px) {
+  .ad-wall { grid-template-rows: repeat(6, minmax(0, 1fr)); }
+}
